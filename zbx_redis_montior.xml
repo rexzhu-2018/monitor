@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2018-09-06T07:09:32Z</date>
+    <date>2018-09-06T07:50:39Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -446,7 +446,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Redis Status:redis_info[{#PORT},CLUSTER_STATUS].last(0)}&lt;30</expression>
+                            <expression>{Redis Status:redis_info[{#PORT},USE_MEM_PERCENT].last(0)}&lt;30</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>Redis  {#PORT} 内存使用超过70%</name>
@@ -494,7 +494,7 @@
                             <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Redis Status:redis_info[{#PORT},ROLE].diff()}=0</expression>
+                            <expression>{Redis Status:redis_info[{#PORT},ROLE].diff()}&gt;0</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>Redis  {#PORT} 集群角色发生变化</name>
